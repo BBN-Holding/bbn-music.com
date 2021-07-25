@@ -1,0 +1,23 @@
+name: Deploy website
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Update bbn.one
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pull Project
+        uses: actions/checkout@v2
+
+      - name: Publish to bbn-music.com
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: ./music/
