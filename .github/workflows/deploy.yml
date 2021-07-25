@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Update bbn.one
+    name: Update bbn-music.com
     runs-on: ubuntu-latest
 
     steps:
